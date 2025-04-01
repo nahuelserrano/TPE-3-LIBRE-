@@ -127,6 +127,6 @@ password: admin
 
 el login se ejecuta correctamante y devuelve el token como deberia al presionar send con los campos del basic completos.
 
-problema: cuando coloco el token en el basic, entiendo que el token termina en la funcion get token() dando error en el segundo if(), retornando error en los datos ingresados. no logre poder encontrar la manera de que ese token llegue al validate.
+problema: cuando coloco el token en el bearer, entiendo que el token termina en la funcion get token() dando error en el segundo if(), retornando error en los datos ingresados. no logre poder encontrar la manera de que ese token llegue al validate.
 
 los metodos post y put se encuentrar bloqueados por no estar logueado, de querer testear su uso, se debera quitar el if(res->user) de sus funciones en el controlador y podran ejecutarse correctamente
