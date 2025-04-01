@@ -74,7 +74,9 @@ class ApiController{
     }
 
     function post($req,$res){
-       
+       if(!$res->user){
+            return $this ->view->response("no estas autorizado para ejecutar esta funcion",401);
+        }
         if(empty($req->body->nombre))
         return $this ->view->response("falta completar nombre",400);
         if(empty( $req->body->apellido))
@@ -119,7 +121,10 @@ class ApiController{
    
 
     function update($req,$res){
-        
+
+        if(!$res->user){
+            return $this ->view->response("no estas autorizado para ejecutar esta funcion",401);
+        }
         $id = $req->params->id;
        $item = $this->model->getItem( $id);
        if(!$item){return $this ->view->response("no existe un comprador con el id=$id",400);}
@@ -178,7 +183,7 @@ class ApiController{
 
 
    function delete($req,$res){
-    
+   
         $id = $req -> params ->id;
         $item = $this->model->getItem($id);
         if(!$item)
